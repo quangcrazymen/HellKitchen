@@ -3,23 +3,57 @@
 
 #include <iostream>
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+
+void renderingThread(sf::RenderWindow* window) {
+    window->setActive(true);
+    sf::Clock deltaClock;
+
+    while (window->isOpen()) {
+        sf::Time dt = deltaClock.restart();
+        std::cout << "Delta time: " << dt.asMilliseconds() << std::endl;
+        window->clear(sf::Color::Black);
+        sf::CircleShape shape(50.f);
+        shape.setPosition(10.f + dt.asMilliseconds(), 30.f+dt.asMilliseconds());
+
+        // set the shape color to green
+        shape.setFillColor(sf::Color(100, 250, 50));
+        
+        //shape.
+        window->draw(shape);
+
+        window->display();
+    }
+    //window->setActive(false);
+}
 
 int main()
 {
-    sf::Window window(sf::VideoMode(800, 600), "My window");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     std::cout << "Hello World!\n";
 
+    window.setActive(false);
+
+    sf::Thread thread(&renderingThread, &window);
+    thread.launch();
+
+    sf::Clock deltaClock;
     while (window.isOpen())
     {
+
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event))
         {
             // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+                thread.terminate();
+            }
+
         }
     }
+    //thread.terminate();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
