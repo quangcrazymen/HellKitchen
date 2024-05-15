@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="MyRectangle">
+		<DisplayString Condition="height == width">
+			This is a square with sides of {height}
+		</DisplayString>
+		<DisplayString>
+			This is a rectangle with height = {height} and width = {width}
+		</DisplayString>
+
+	</Type>
+</AutoVisualizer>
