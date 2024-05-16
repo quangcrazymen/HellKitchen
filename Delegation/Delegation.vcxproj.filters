@@ -21,9 +21,15 @@
     <ClCompile Include="SourceCode\Delegation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SourceCode\World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SourceCode\Delegation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

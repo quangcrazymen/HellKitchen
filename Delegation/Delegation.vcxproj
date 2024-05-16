@@ -132,9 +132,11 @@
   <ItemGroup>
     <ClCompile Include="SourceCode\Delegation.cpp" />
     <ClCompile Include="SourceCode\Main.cpp" />
+    <ClCompile Include="SourceCode\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SourceCode\Delegation.h" />
+    <ClInclude Include="SourceCode\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
